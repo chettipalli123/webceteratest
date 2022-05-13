@@ -1,0 +1,494 @@
+DAY 1:
+25/4/2022
+
+NET=Network Enabled Technology
+DOT=intellisense feature
+
+using system; //namespace
+platform/framework
+66+ languages
+
+TYPES:
+console,windows,web,WEBAPI
+
+Ex:(console) is ATM (command prompt, no GUI)
+
+Ex:(Windows/standalone/desktop application) is MSoffice,Tally
+
+Ex:(WEB) is gmail,facebook (requires internet,GUI)
+
+Ex: (WEBAPI) is google map,weather report
+
+.NET components:
+CLR:Common Language Runtime
+BCL:Base Class Library
+
+CLR:
+code execution & detection
+Memory management
+	Garbage collection(GC)
+Cross language interoperability(Interop)
+
+FCL:Framework class Library(Windows:Using System.windows;,Web,WEBAPI)
+BCL: Using System;
+     Using System.IO;
+     Using System.Data;
+     Using System.linq;
+     Using System.Collections.Generic;
+
+WEB:
+C#.NET:language
+ASP.NET(ASP=Active Server Pages):technology
+MVC:Model View Control(latest version is MVC 5)
+
+.NET_CODE Execution:
+C#    J#    F#   
+VB.NET->(common compiler is .NET compiler)->MSIL(Microsft Intermediate Language, or IL code)->CLR(CLS(common language specification) & CTS(common type s/m) these 2 components are used for code detection)->JIT(Just In Time-converts MSIL(low level)code to source code)->Output
+CTS(datatypes of all languages is stored in CTS)
+CLS(Class,Interface,Object of all languages)
+CLR( if any error, CLR debugger enables)
+
+MSIL creates .exe/.dll
+
+.dll:dynamic link library
+class LIB1
+{
+	fun1(){}...
+	fun100(){}
+}
+Dependent file(no execution happens, no output)
+
+
+.exe:executable file
+void main()
+{
+..
+}
+Independent file(can call dependent file)
+
+DLL HELL:APP1(lib1...lib10),APP2(lib1..lib10) same library names(conflict, apps can crash)
+version number is auto generated to avoid conflict between library names.Hence MSIL
+
+
+Control statements:
+1.conditional
+	ifelse,nested-elseif,switch-case
+2.Iterational
+	while,dowhile,for,foreach
+
+Operators:
+	Arithmetic:+,-,*,/,%
+	Relational: >,<,<=,>=,==
+	logical: &&,||,!
+
+----------------------------------------------------------------------------------------------------
+
+DAY 2:
+27/4/2022
+
+switch(choice(int/char/string))
+{
+case 1:
+break;
+
+case 2:
+break;
+
+default:
+break;
+}
+
+Iterational control statements:
+while,do-while,for,for-each
+1. initialisation
+2. test condition
+3. inc/dec
+
+while(test)
+{
+inc/dec
+}
+
+Array: collection of elements of same kind/type. group of data of same datatype. collection of homogenous elements.
+1. single-dimentional
+2. two-dimentional
+
+object array: (heterogenous elements) object can store any type of element. It is a base class under System.(Ex: book deatils contains id, name, price) 
+jagged array: array within array. collection of indefined array (different array sizes)
+
+Enum(enumerated datatype):
+set of named integer constants
+
+object oriented programming:
+1.CLASSES AND OBJECTS
+2.CONSTRUCTOR AND DESTRUCTOR
+3.INHERITANCE
+	single,multiple,multilevel,hierarchical,hybrid
+	.NET doesn't support multiple hence interface concept is used
+4.POLYMORPHISM
+	compile time
+	run time
+
+class:colection of datamembers/business entities and member functions.
+	access modifier/specifier: private,protected,public
+
+"THIS" pointer is used when there is ambiguity/conflict when we use same name for function parameters(paremetrized methods) and data-members(variables) (Ex: pid=pid, use "this.pid=pid)
+
+Ternary operator:
+n1>n2?n1:n2
+(here it checks for greatest number, if n1>n2 then n1 is printed else n2 is printed)
+
+---------------------------------------------------------------------------------------------------------
+
+DAY 3:
+29/4/2022
+
+1.Constructor and destructor: 
+  Constructor:
+	it is a special member of class, which is used to initialise the data-members.
+	constructor name is same as class name
+	constructor can take parameters
+
+	TYPES:
+		1.Default constructor
+		2.prameterised constructor
+		3.copy constructor
+  Destructor:
+	it is member of class which is used to deallocate the memory space used by objects
+	destructor name is same as class name, preceeded by tilde(~) operator
+	destructor cannot be parameterised
+
+2.is and as operator:
+	is operator:
+		used to check the run-time type of an object
+		is compatiable with given type or not
+		it returns boolean value
+		it is used only for reference types(objects) and not for datatypes		
+
+	as operator:
+		used to perform conversion between compatible datatypes
+
+nullable or ?
+
+Conversion:
+	int.Parse 
+	int.TryParse
+	Convert.ToInt32
+
+Boxing and unboxing:
+	Boxing: conversion from value type to object/reference type (implicit conversion)
+	Unboxing: conversion from object/reference type to value type (explicit conversion)
+
+3.string functions:
+	Length,IndexOf,LastIndexOf,Remove,Concat,Substring,Replace,Clone,Copy,CopyTo,Split,
+	(boolean)StartsWith,EndsWith,Contains,
+	(-1/0/1)Compare,CompareTo,
+
+	CharEnumerator :GetEnumerator, .MoveNext
+	ToCharArray is used instead of CharEnumerator
+
+Difference between equals and ==
+equals is function, checks the content of 2 strings
+== is operator, checks the memory location
+
+Structure: refered as value type
+
+value type: struct,int,double,char,string,enum
+	data is stored in stack
+	holds data wihtin its own memory(independent)
+
+reference type:(new keyword is used) class,array,stringbuilder,interface,indexer,properties
+	data is stored in heap
+	contains a pointer to another memory location, this memory location holds the data
+		
+4.string and stringbuilder:
+string: immutable(cannot be changed)
+	if a string is used as constant, then string is used
+
+stringbuilder: mutable(can be changed)
+	if string requires modification, then stringbuilder
+	using System.Text;
+
+------------------------------------------------------------------------------------------------------
+
+DAY 4:
+2/5/2022
+
+static and non-static variable: static variable is accessed with class name
+static and non-static methods: static method is invoked with class name
+static and non-static constructor: static constructor has no access modifiers
+
+Inheritance:acquire the properties of parent class to child class
+Types:
+	single: (base-> derived)
+	multiple(not supported, hence interface is used): (A,B->C)
+	multilevel: (A->B->C) can have any number of levels
+	hierarchical: (A->B,C,D)
+	hybrid(not supported):(A->B,C->D)
+constructor inheritance
+
+Interface: group/collection of abstract methods/functions
+	variable declaration is not allowed
+	methods/functions of interface are public
+	all methods of interface should be implemented
+
+abstract method: method without defination are refered as abstract
+concrete method: method with defination are refered as concrete
+
+polymorphism: taking many forms
+poly->multiple
+morphism->forms/behaviours
+
+Types:
+	compile-time/function overloading,static,early binding
+	runtime/function overriding,dynamic,late binding
+
+-----------------------------------------------------------------------------------------------------
+
+DAY 5:
+4/5/2022
+
+Function parameters:
+	ref(function parameter should also be called with the ref keyword),
+	out(used to return more than 1 value, not prefered since it occupies more memory and time to process),
+	params(used when no.of parameters is unknown),
+	named(with the help of named parameter, we can give the parameters in any order),
+	default/optional(assign a value to the function parameters,if parameters are not passed default value will be displayed.we can also pass null value)
+
+Types of class:
+1.Abstract class: cannot be instantiated, but it can be inherited
+
+	differnce b/w interface and abstract class:
+
+	interface: collection of abstract methods
+		   variable declaration is not allowed
+		   interface is implemented in class
+
+	abstract class: collection of abstract and non-abstract methods
+			variables are allowed
+			abstract class is inherited 
+
+2.sealed class: can be instantiated, but it cannot be inherited (opposite of abstract class)
+
+3.partial class and partial methods: 
+
+ partial class: used to split the development task across the developers
+                creates a single class only even if n no.of classes is created
+                same class name with partial keyword
+
+ partial methods: partial methods are declared and defined
+	          code is not visible outside the class since partial methods are private by default
+					  
+ 
+4.static class: anything within a static class should be static (methods and variables should be static)
+		neither instantiated nor inherited
+
+Properties:
+	used for individual variables
+	Properties provides access to private data-members of class
+Types of Properties:
+	Read-only(get) and write-only(set)
+
+To Auto-generate properties: prop+tab+tab
+
+Indexer:
+	used for an array(only 1 array)
+	can update the array elements
+	
+ For 2-dimensional array:
+	
+"using System.Collections;": used to collect data
+			    non-collection classes are not "type-safe"
+
+1.ArrayList: dynamic array. Its array size can grow to any size 
+	allows to add any type of data into the array hence not "type-safe"
+	Add,AddRange,Remove,RemoveAt,RemoveRange,Sort(sorts only of same data-type),
+	Reverse(reverse the array elements)
+
+ Array:static array
+
+2.Hashtable: uses "hashing" method for data-storage
+	     data is stored in key-value pair format
+	     duplicate keys are not allowed(keys must be unique)
+	     data is stored randomly. not in the order as we entered
+	     to fetch the data(key->.Keys, value->.Values) use ICollection,IDictionaryEnumerator(GetEnumerator()),DictionaryEntry in foreach loop
+
+3.SortedList: sorts the data and then stores (similar to hashtable)
+
+-------------------------------------------------------------------------------------------------------
+
+Day 6:
+6/5/2022
+
+4.Stack: LIFO (Last In First Out)
+
+5.queue: FIFO (First In First Out)
+
+"using System.Collections.Generic;": Generic-collection classes are "type-safe"
+
+1.List<int>: can store duplicate values. (Add,AddRange,Remove,RemoveAt,RemoveRange,Sort,Reverse)
+	     how to use user-defined datatype
+
+2.Dictionary<int,string>: unsorted keys,no duplicate values
+			  similar to hashtable, but we won't write datatypes
+			  no interfaces required to access the keys and values
+			  KeyValuePair: (not supported in non-generic dictionary)
+
+3.SortedDictionary<int,string>: sorted keys
+
+4.Hashset<int>: collection of unique elements (duplicate values will be overridden)
+
+5.Stack<>: LIFO (Last In First Out)
+
+user-defined generic class: useful to store different types of datatype as per the requirement
+			    (ex: course id can be like 1/"PY-007"/CS-101/CS101)
+
+Sorting using Icomparable and IComparer Interface:
+
+ IComparable: used when we have access to modify the class 
+ IComparer Interface: used when we cannot change the implementation of class library
+
+6.queue<>:
+
+----------------------------------------------------------------------------------------------------------
+
+DAY 7:
+9/5/2022
+
+File Handling: using System.IO;
+
+	INPUT->create,write,append
+	OUTPUT->open,read
+
+File Handling classes:
+	File
+	filestream: creates file only, FileMode.Create,FileMode.Open,FielMode.Append
+	FileInfo: CreateText(),OpenText(),ReadText()
+	streamwriter:to write the data into the file
+        streamreader:to read the data from the existing file
+
+	Exists: returns bool value
+	Append: append a new line to an existing file
+
+Serialisation: method of converting object into bytes. 
+	       used in WEBAPI. Output is in JSON format(here, serialisation happens).
+
+De-Serialisation: method of converting bytes into objects.
+
+	Types:
+		deep-Serialisation:(private,protected,public)
+			1.Binary
+			2.soap
+			3.datacontractjson: using System.Runtime.Serialization.Json;
+					    using System.Runtime.Serialization;
+				JSON-serialization:
+ 				JSON: javascript object notation
+ 				->json is "text-based" standard for storing data and data-transfer
+ 				->json format stores the data in key-value pair
+ 				->json data is platform & OS independent
+                                ->sorts andthen stores the data
+
+				Format:
+ 				[
+  				 {edesig:"TL",eid:1,ename:"john"},
+  				 {edesig:"TM",eid:2,ename:"JHONY"}
+   				]
+		shallow-Serialisation:(public)
+			4.xml: using System.Xml.Serialization;
+			       eXtensible Markup Language
+			       xml is one of the text-based standard for data-representation
+
+			Format: case-sensitive, used to represent/store the data, user defined tags
+				<xml>
+			        <Employee>
+			        <eid>1</eid>
+				<ename>john</ename>
+				<Edesig>s/w engg</Edsig>
+				</Employee>
+
+Exception Handling:
+ Errors:
+ 1.compile-time: wronglogic, mistake in the syntax, improper datatype conversions
+ 2.run-time: errors which occurs during runtime can be handled by "Exception Handling blocks"
+ 
+ try block: code which might cause run-time errors is placed in try block,
+ catch block: catch the exception,
+ throw: used to throw the exception explicity,
+ finally block: code which must be executed atleast once
+		array memory is released, close files, close all the database connections
+
+DivideByZeroException, InvalidCastException,ArgumentOutOfRangeException, IndexOutOfRangeException
+
+Delegates: 
+ ->used to handling events(event invokes delegates and delgates invokes methods)
+ ->invokes methods
+ ->used to define anonymous methods
+ ->function pointers
+ ->delegate can call many functions
+ ->delegate signature should match with function signature
+
+Multi-cast Delegate: calls a series of delegates
+
+----------------------------------------------------------------------------------------------------------
+
+Day 8:
+11/5/2022
+
+Generic Delegates:
+ 3 types:
+	func<>: takes upto 16 input parameters and returns a single value
+	action<>: takes upto 16 input parameters and it does not returns a value
+	predicate<>: method with string as input parameter and returns bool value
+
+Anonymous Types:
+ ->variables wihtout datatype
+ ->anonymous types are declared
+------------------------------------------------------pending-----------------------------
+
+var and dynamic:
+int,string,double -->compile-time checker
+dynamic -->run-time checker
+
+dynamic: used when we need to pass the anonymous type into method
+
+Anonymous methods: 
+ ->methods without name is referred as "Anonymous method"
+ ->implemented by using delegate 
+
+extension methods:
+ ->we use static classes and static methods to extend the features of the newly created methods
+
+class library:
+ ->depndent file, cannot run
+
+multithreading: multiple threads executing parallel/concurrent
+using System.Threading;
+thread: independent execution path
+thread allows the execution of application logic
+Thread-->class
+Threadstart-->delegate
+
+thread synchronisation: (allowing only 1 thread to execute a block of code)
+ ->synchronisation allows only 1 thread to use the resource for particular period of time
+ ->other threads are not allowed to interrupt until the assigned task is completed by thread
+ ->thread synchronisation is acheived by "locks"
+
+->lock ex: ticket cancellation(after a user cancels then it will be available to others)
+
+thread pool: 
+ ->ex: login page where multiple users try to login into a page,shopping website, flight booking tickets
+ ->automated approach for multithreading
+ ->is a set of pre-configured threads which are alive and ready to handle incoming request
+ ->once if the request is completed by the thread, thread will be return back to the thread-pool (thread will not be killed)
+ ->improves the performance of an application (since the threads are not killed)
+
+task library:
+ ->using System.Threading.Tasks;
+ ->helps in asynchronous programming
+ 
+async and await: used in API
+
+-------------------------------------------------------------------------------------------------------------
+
+DAY 9:
+
